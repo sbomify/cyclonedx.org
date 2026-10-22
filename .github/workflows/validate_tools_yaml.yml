@@ -13,8 +13,10 @@ jobs:
   lint-yaml:
     runs-on: ubuntu-latest
     steps:
+      - name: install uv
+        uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884 # v10.3.0
       - name: install yamale
-        run: pip install 'yamale>=5.2.1,<6'
+        run: uv tool install 'yamale>=5.2.1,<6'
       - name: checkout
         uses: actions/checkout@v4
       - name: lint tools yaml
